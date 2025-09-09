@@ -4,14 +4,14 @@ brain = Brain()
 controller = Controller()
 
 
-r1=Motor(Ports.PORT1)
-r2=Motor(Ports.PORT2)
-r3=Motor(Ports.PORT3)
+r1=Motor(Ports.PORT1,True)
+r2=Motor(Ports.PORT2,True)
+r3=Motor(Ports.PORT3,False)
 right_motors=MotorGroup(r1, r2, r3)
 
-l1=Motor(Ports.PORT4)
-l2=Motor(Ports.PORT5)
-l3=Motor(Ports.PORT6)
+l1=Motor(Ports.PORT4,True)
+l2=Motor(Ports.PORT5,True)
+l3=Motor(Ports.PORT6,False)
 left_motors=MotorGroup(l1, l2, l3)
 
 
