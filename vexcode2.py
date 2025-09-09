@@ -23,6 +23,10 @@ def right_motor(speed):
     speed = speed * 6
     right_motors.set_velocity(speed)
 
+
+
+
+
 def autonomous():
     brain.screen.clear_screen()
     brain.screen.print("autonomous started")
@@ -31,8 +35,7 @@ def autonomous():
     TRACK_WIDTH_IN  = 12.8    # distance between left/right wheel centers (in)
     GEAR_RATIO_DRIVE = 0.75    # external gear ratio affecting wheel RPM (1.0 if direct)
 
-    pi = math.pi
-    WHEEL_CIRC_IN = pi * WHEEL_DIAM_IN
+    WHEEL_CIRC_IN = math.pi * WHEEL_DIAM_IN
 
     def drive_inches(speed_percent, inches, brake=True):
         turns = abs(inches) / WHEEL_CIRC_IN / GEAR_RATIO_DRIVE
@@ -76,27 +79,28 @@ def autonomous():
     start_on_right = True  # flip per alliance start tile
 
     # 1) go to block cluster (2nd arg is distance)
-    turn_degres(45,28)
-    drive_inches(60,27.5)
+    drive_inches(60, 20)
+    drive_inches(25, 3)
+    drive_inches(40, -6)
 
     # 2) go to loader
     if start_on_right:
-        turn_degrees(45, 107)
+        turn_degrees(45, 90)
     else:
-        turn_degrees(45, -107)
+        turn_degrees(45, -90)
 
-    drive_inches(55, 46)
-    turn_degrees(45,45)
-    #pneumatics
-    drive_inches(55,1)
+    drive_inches(55, 16)
+    drive_inches(35, -4)
 
     # 3) long goal
     if start_on_right:
-        turn_degrees(45, 180)
+        turn_degrees(45, -90)
     else:
-        turn_degrees(45, 180)
-    drive_inches(60, 44.7)
-    #conveyor
+        turn_degrees(45, 90)
+    drive_inches(60, 36)
+    drive_inches(25, 2)
+    drive_inches(40, -6)
+
 
 def driver_control():
 
